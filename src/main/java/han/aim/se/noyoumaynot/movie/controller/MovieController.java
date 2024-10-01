@@ -56,10 +56,9 @@ public class MovieController {
 
     @PostMapping("/add")
     public Movie addMovie(@RequestBody Movie movie, @RequestHeader(HttpHeaders.AUTHORIZATION) String authorization) throws Exception {
-        String username = authenticate(authorization);  // Haal de gebruikersnaam op via authenticatie
-        Role userRole = authenticationService.getUserRole(username);  // Haal de rol van de gebruiker op
+        String username = authenticate(authorization);  
+        Role userRole = authenticationService.getUserRole(username);
 
-        // Controleer of de gebruiker een admin is
         if (userRole == null || !userRole.isAdmin()) {
             throw new SecurityException("User is not authorized to add movies.");
         }
