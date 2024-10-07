@@ -21,8 +21,8 @@ public class MovieController {
     private final MovieService movieService;
     private final AuthenticationService authenticationService;
 
-    private String user = "caz";
-    private String password = "wachtwoord";
+//    private String user = "caz";
+//    private String password = "wachtwoord";
     public String token;
 
     @Autowired
